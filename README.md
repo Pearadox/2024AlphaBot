@@ -9,6 +9,10 @@ Best Practices:
 - Install Git Pull Request Extension
 - Make sure .gitconfig is using your email and name
 - issue notes in subsystem_programming if necessary
+- if creating brand new repo:
+	1. create new repo in github
+	2. clone repo to laptop
+	3. copy over code into repo folder 
 
 Pull Request Sequence:
 1. create branch in VSCode (if you dont have one already)
@@ -17,5 +21,4 @@ Pull Request Sequence:
 4. save changes and commit to your branch
 5. make a pull request for your commits from VSCode
 
-Best Practices-
 
