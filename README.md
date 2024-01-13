@@ -17,8 +17,7 @@ Best Practices:
 	1. create new repo in github
 	2. clone repo to laptop
 	3. copy over code into repo folder 
-- Guide to implement Continuous Integration (very important): 
-    <!-- - https://docs.wpilib.org/en/stable/docs/software/advanced-gradlerio/robot-code-ci.html -->
+- Implement Continuous Integratrion (guide in Slack, will document fully later) 
 
 Pull Request Sequence:
 1. create branch in VSCode (if you dont have one already)
