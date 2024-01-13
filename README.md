@@ -1,3 +1,4 @@
+[![CI](https://github.com/Pearadox/2024AlphaBot/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/Pearadox/2024AlphaBot/actions/workflows/main.yml)
 # 2024Swerve
 Best Practices:
 - Use .gitignore files
@@ -15,4 +16,6 @@ Pull Request Sequence:
 3. make any changes
 4. save changes and commit to your branch
 5. make a pull request for your commits from VSCode
+
+Best Practices-
 
