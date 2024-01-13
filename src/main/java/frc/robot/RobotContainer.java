@@ -6,8 +6,10 @@ package frc.robot;
 
 import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.auto.NamedCommands;
+import com.pathplanner.lib.util.PathPlannerLogging;
 
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.smartdashboard.Field2d;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -32,9 +34,11 @@ public class RobotContainer {
   private final JoystickButton resetHeading_Start = new JoystickButton(driverController, XboxController.Button.kStart.value);
 
   private final SendableChooser<Command> autoChooser;
+  private final Field2d field; 
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
+    field = new Field2d();
     registerNamedCommands();
     configureBindings();
 
@@ -42,6 +46,19 @@ public class RobotContainer {
 
     autoChooser = AutoBuilder.buildAutoChooser("Two Meters");
     SmartDashboard.putData("Auto Chooser", autoChooser);
+    SmartDashboard.putData("Field", field);
+    PathPlannerLogging.setLogCurrentPoseCallback((pose) -> {
+        // Do whatever you want with the pose here
+        field.setRobotPose(pose);
+    });
+    PathPlannerLogging.setLogTargetPoseCallback((pose) -> {
+        // Do whatever you want with the pose here
+        field.getObject("target pose").setPose(pose);
+    });
+    PathPlannerLogging.setLogActivePathCallback((poses) -> {
+        // Do whatever you want with the poses here
+         field.getObject("path").setPoses(poses);
+     });
   }
 
   /**

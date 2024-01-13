@@ -25,6 +25,12 @@ public final class Constants {
     public static final int DRIVER_CONTROLLER_PORT = 0;
     public static final int OP_CONTROLLER_PORT = 1;
   }
+  public static final class VisionContants{
+    public static final double MIDDLE_SPEAKER_TO_SPEAKER_BOT_VERT_INCH = 20.875;
+    public static final double SIDE_SPEAKER_TO_MIDDLE_SPEAKER_HORIZ_INCH = 22.25;
+    public static final double SPEAKER_EXTRUSION_INCH = 18;
+    public static final double CARPET_TO_SPEAKER_BOT_INCH = 78;
+  }
 
   public static final class SwerveConstants{
     //Drivetrain motor/encoder IDs
@@ -46,10 +52,10 @@ public final class Constants {
     public static final int PIGEON_ID = 15;
 
     //Drivetrain characteristics
-    public static final double LEFT_FRONT_OFFSET = -0.415; //change
-    public static final double RIGHT_FRONT_OFFSET = -0.317; //change
-    public static final double LEFT_BACK_OFFSET = -0.389; //change
-    public static final double RIGHT_BACK_OFFSET = 0.235; //change
+    public static final double LEFT_FRONT_OFFSET = 264.375; //change
+    public static final double RIGHT_FRONT_OFFSET = 162.773; //change
+    public static final double LEFT_BACK_OFFSET = 21.621; //change
+    public static final double RIGHT_BACK_OFFSET = 279.580; //change
 
     public static final double WHEEL_DIAMETER = Units.inchesToMeters(4);
     public static final double DRIVE_MOTOR_GEAR_RATIO = 6.75;
@@ -64,8 +70,8 @@ public final class Constants {
     public static final double DRIVETRAIN_MAX_ANGULAR_SPEED = 3.5 * Math.PI;
 
     //Swerve Kinematics
-    public static final double TRACK_WIDTH = Units.inchesToMeters(20.75);
-    public static final double WHEEL_BASE = Units.inchesToMeters(20.75);
+    public static final double TRACK_WIDTH = Units.inchesToMeters(18.75);
+    public static final double WHEEL_BASE = Units.inchesToMeters(18.75);
     public static final double DRIVE_BASE_RADIUS = Math.sqrt(Math.pow(TRACK_WIDTH, 2) + Math.pow(WHEEL_BASE, 2)) / 2.0;
 
     public static final SwerveDriveKinematics DRIVE_KINEMATICS = new SwerveDriveKinematics(

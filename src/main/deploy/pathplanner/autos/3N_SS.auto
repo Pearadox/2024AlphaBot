@@ -1,0 +1,37 @@
+{
+  "version": 1.0,
+  "startingPose": null,
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "SS_Move"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "SS_1N"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "SS_2N"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "SS_3N"
+          }
+        }
+      ]
+    }
+  },
+  "folder": null,
+  "choreoAuto": false
+}

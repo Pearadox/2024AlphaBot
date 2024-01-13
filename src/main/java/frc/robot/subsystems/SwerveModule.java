@@ -31,8 +31,6 @@ public class SwerveModule extends SubsystemBase {
   private boolean absoluteEncoderReversed;
   private double absoluteEncoderOffset;
 
-  private int driveID = 0;
-
   private Rotation2d lastAngle;
 
   /** Creates a new SwerveModule. */
@@ -41,7 +39,6 @@ public class SwerveModule extends SubsystemBase {
       this.absoluteEncoderOffset = absoluteEncoderOffset;
       this.absoluteEncoderReversed = absoluteEncoderReversed;
 
-      driveID = driveMotorId;
       absoluteEncoder = new CANcoder(absoluteEncoderId);
 
       driveMotor = new PearadoxSparkMax(driveMotorId, MotorType.kBrushless, IdleMode.kCoast, 45, driveMotorReversed);
@@ -60,10 +57,6 @@ public class SwerveModule extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-    SmartDashboard.putNumber("Drive Distance (rot) - Motor: " + driveID, getDriveMotorPosition());
-    SmartDashboard.putNumber("Wheel Position (rot) - Motor: " + driveID, getTurnMotorPosition());
-    SmartDashboard.putNumber("Absolute Wheel Angle (deg) - Motor: " + driveID, absoluteEncoder.getAbsolutePosition().getValueAsDouble());
-    
   }
 
   public void setBrake(boolean brake){
@@ -96,7 +89,7 @@ public class SwerveModule extends SubsystemBase {
   public double getAbsoluteEncoderAngle(){
     double angle = absoluteEncoder.getAbsolutePosition().getValueAsDouble();
     angle -= absoluteEncoderOffset;
-    angle *= (2 * Math.PI);
+    angle *= (Math.PI / 180);
     return angle * (absoluteEncoderReversed ? -1.0 : 1.0);
   }
 
@@ -119,7 +112,6 @@ public class SwerveModule extends SubsystemBase {
     setAngle(desiredState);
     setSpeed(desiredState);
     SmartDashboard.putString("Swerve [" + driveMotor.getDeviceId() + "] State", getState().toString());
-    SmartDashboard.putNumber("Abs Angle " + driveMotor.getDeviceId(), getAbsoluteEncoderAngle());
   }
 
   public void setSpeed(SwerveModuleState desiredState){
