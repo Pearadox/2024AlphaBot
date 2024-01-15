@@ -11,7 +11,9 @@ Best Practices:
     - Git Extension Pack
     - GitLens
     - Git gui
-- Make sure .gitconfig is using your email and name
+- Make sure .gitconfig is using your email and name (either directly or using git commands)
+  - Set a Git username: git config --global user.name "Mona Lisa"
+  - Set a Git email: config --global user.email "you@example.com"
 - issue notes in subsystem_programming if necessary
 - if creating brand new repo:
 	1. create new repo in github
