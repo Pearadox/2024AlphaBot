@@ -60,8 +60,8 @@ public final class Constants {
     public static final double TURN_MOTOR_VCONVERSION = TURN_MOTOR_PCONVERSION / 60.0;
     public static final double KP_TURNING = 0.5;
 
-    public static final double DRIVETRAIN_MAX_SPEED = 4.0;
-    public static final double DRIVETRAIN_MAX_ANGULAR_SPEED = 3.5 * Math.PI;
+    public static final double DRIVETRAIN_MAX_SPEED = 4.40; //Max free spinning module speed: 4.638
+    public static final double DRIVETRAIN_MAX_ANGULAR_SPEED = 3.45 * Math.PI;
 
     //Swerve Kinematics
     public static final double TRACK_WIDTH = Units.inchesToMeters(20.75);
@@ -76,7 +76,7 @@ public final class Constants {
     );
 
     //Teleop constraints
-    public static final double TELE_DRIVE_MAX_SPEED = DRIVETRAIN_MAX_SPEED / 1;
+    public static final double TELE_DRIVE_MAX_SPEED = DRIVETRAIN_MAX_SPEED;
     public static final double TELE_DRIVE_MAX_ANGULAR_SPEED = DRIVETRAIN_MAX_ANGULAR_SPEED / 1.75;
     public static final double TELE_DRIVE_MAX_ACCELERATION = 3;
     public static final double TELE_DRIVE_MAX_ANGULAR_ACCELERATION = 3;
