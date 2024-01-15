@@ -62,7 +62,8 @@ public class SwerveModule extends SubsystemBase {
     // This method will be called once per scheduler run
     SmartDashboard.putNumber("Drive Distance (rot) - Motor: " + driveID, getDriveMotorPosition());
     SmartDashboard.putNumber("Wheel Position (rot) - Motor: " + driveID, getTurnMotorPosition());
-    SmartDashboard.putNumber("Absolute Wheel Angle (deg) - Motor: " + driveID, absoluteEncoder.getAbsolutePosition().getValueAsDouble());
+    SmartDashboard.putNumber("Absolute Wheel Angle (deg) - Motor: " + driveID, 
+      absoluteEncoder.getAbsolutePosition().getValueAsDouble());
     
   }
 
@@ -127,7 +128,9 @@ public class SwerveModule extends SubsystemBase {
   }
 
   public void setAngle(SwerveModuleState desiredState){
-    Rotation2d angle = (Math.abs(desiredState.speedMetersPerSecond) <= (SwerveConstants.DRIVETRAIN_MAX_SPEED * 0.01)) ? lastAngle : desiredState.angle; //Prevent rotating module if speed is less then 1%. Prevents Jittering.
+    //Prevent rotating module if speed is less then 1%. Prevents Jittering.
+    Rotation2d angle = (Math.abs(desiredState.speedMetersPerSecond) <= (
+      SwerveConstants.DRIVETRAIN_MAX_SPEED * 0.01)) ? lastAngle : desiredState.angle; 
     
     turnMotor.set(turnPIDController.calculate(getTurnMotorPosition(), desiredState.angle.getRadians()));
     lastAngle = angle;

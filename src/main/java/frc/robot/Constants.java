@@ -46,6 +46,8 @@ public final class Constants {
     public static final int PIGEON_ID = 15;
 
     //Drivetrain characteristics
+
+    // Offsets must be in rotations, not degrees
     public static final double LEFT_FRONT_OFFSET = -0.415; //change
     public static final double RIGHT_FRONT_OFFSET = -0.317; //change
     public static final double LEFT_BACK_OFFSET = -0.389; //change
