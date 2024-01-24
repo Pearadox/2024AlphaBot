@@ -14,7 +14,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "M_1_S"
+            "pathName": "M_1_A"
           }
         },
         {
@@ -32,7 +32,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "M_1-2"
+            "pathName": "M_1-2_A"
           }
         },
         {
@@ -50,7 +50,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "M_2-3"
+            "pathName": "M_2-3_A"
           }
         },
         {
@@ -62,6 +62,6 @@
       ]
     }
   },
-  "folder": null,
+  "folder": "Middle",
   "choreoAuto": false
 }
