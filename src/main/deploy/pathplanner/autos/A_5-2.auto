@@ -3,7 +3,7 @@
   "startingPose": {
     "position": {
       "x": 1.5,
-      "y": 4.1
+      "y": 6.28
     },
     "rotation": 0
   },
@@ -12,9 +12,15 @@
     "data": {
       "commands": [
         {
+          "type": "wait",
+          "data": {
+            "waitTime": 1.0
+          }
+        },
+        {
           "type": "path",
           "data": {
-            "pathName": "M_6_B"
+            "pathName": "A_5"
           }
         },
         {
@@ -26,7 +32,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "M_6_R_B"
+            "pathName": "A_5_R"
           }
         },
         {
@@ -44,7 +50,19 @@
         {
           "type": "path",
           "data": {
-            "pathName": "M_1_B"
+            "pathName": "A_5-4"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Stop Modules"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "A_4_R"
           }
         },
         {
@@ -62,7 +80,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "M_1-2_B"
+            "pathName": "A_4-3"
           }
         },
         {
@@ -80,7 +98,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "M_2-3_B"
+            "pathName": "A_3-2"
           }
         },
         {
@@ -92,6 +110,6 @@
       ]
     }
   },
-  "folder": "Middle",
+  "folder": "Amp",
   "choreoAuto": false
 }

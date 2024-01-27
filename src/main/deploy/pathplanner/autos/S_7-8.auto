@@ -1,6 +1,12 @@
 {
   "version": 1.0,
-  "startingPose": null,
+  "startingPose": {
+    "position": {
+      "x": 1.5,
+      "y": 3.25
+    },
+    "rotation": 0
+  },
   "command": {
     "type": "sequential",
     "data": {
@@ -8,7 +14,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "A_5_S"
+            "pathName": "S_7"
           }
         },
         {
@@ -20,7 +26,25 @@
         {
           "type": "path",
           "data": {
-            "pathName": "5_A_R"
+            "pathName": "S_7_R"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Stop Modules"
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 1.0
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "S_7-8"
           }
         },
         {
@@ -32,7 +56,7 @@
         {
           "type": "path",
           "data": {
-            "pathName": "A_4"
+            "pathName": "S_8_R"
           }
         },
         {
@@ -44,6 +68,6 @@
       ]
     }
   },
-  "folder": null,
+  "folder": "Source",
   "choreoAuto": false
 }

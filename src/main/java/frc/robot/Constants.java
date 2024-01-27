@@ -91,8 +91,8 @@ public final class Constants {
     public static final double TELE_DRIVE_MAX_ANGULAR_ACCELERATION = 3;
 
     //Auton constraints
-    public static final double AUTO_kP_TRANSLATION = 0.4;
-    public static final double AUTO_kP_ROTATION = 2.4;
+    public static final double AUTO_kP_TRANSLATION = 4;
+    public static final double AUTO_kP_ROTATION = 1.5;
 
     public static final HolonomicPathFollowerConfig AUTO_CONFIG = new HolonomicPathFollowerConfig(
       new PIDConstants(AUTO_kP_TRANSLATION, 0.0, 0.0),
