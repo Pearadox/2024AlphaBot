@@ -6,7 +6,6 @@ package frc.robot.subsystems;
 
 import java.text.DecimalFormat;
 
-import org.littletonrobotics.junction.LogDataReceiver;
 import org.littletonrobotics.junction.Logger;
 
 import com.ctre.phoenix6.hardware.Pigeon2;

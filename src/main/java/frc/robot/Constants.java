@@ -4,8 +4,6 @@
 
 package frc.robot;
 
-import org.ejml.dense.row.mult.VectorVectorMult_CDRM;
-
 import com.pathplanner.lib.util.HolonomicPathFollowerConfig;
 import com.pathplanner.lib.util.PIDConstants;
 import com.pathplanner.lib.util.ReplanningConfig;
@@ -19,7 +17,7 @@ import edu.wpi.first.math.geometry.Translation3d;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.math.numbers.N3;
 import edu.wpi.first.math.util.Units;
-import frc.lib.vision.PhotonVisionBackend;
+// import frc.lib.drivers.util.vision.PhotonVisionBackend;
 
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
@@ -135,17 +133,17 @@ public final class Constants {
       ), 
       new Rotation3d());
 
-      public static final PhotonVisionBackend.StandardDeviation PHOTON_VISION_STD_DEV =
-      (distance, count) -> {
-          double distanceMultiplier = Math.pow(distance - ((count - 1) * 2), 2);
-          double translationalStdDev = (0.05 / (count)) * distanceMultiplier + 0.05;
-          double rotationalStdDev = 0.2 * distanceMultiplier + 0.1;
-          return VecBuilder.fill(
-                  translationalStdDev,
-                  translationalStdDev,
-                  rotationalStdDev
-          );
-      };
+      // public static final PhotonVisionBackend.StandardDeviation PHOTON_VISION_STD_DEV =
+      // (distance, count) -> {
+      //     double distanceMultiplier = Math.pow(distance - ((count - 1) * 2), 2);
+      //     double translationalStdDev = (0.05 / (count)) * distanceMultiplier + 0.05;
+      //     double rotationalStdDev = 0.2 * distanceMultiplier + 0.1;
+      //     return VecBuilder.fill(
+      //             translationalStdDev,
+      //             translationalStdDev,
+      //             rotationalStdDev
+      //     );
+      // };
 
       public static final Vector<N3> LIMELIGHT_STD_DEV = VecBuilder.fill(0.9, 0.9, 0.9);
       
