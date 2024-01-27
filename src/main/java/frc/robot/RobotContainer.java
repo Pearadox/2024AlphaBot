@@ -26,7 +26,7 @@ import frc.robot.subsystems.Drivetrain;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-  private final Drivetrain drivetrain = Drivetrain.getInstance();
+  public static final Drivetrain drivetrain = Drivetrain.getInstance();
 
   public static final XboxController driverController = new XboxController(0);
   private final JoystickButton resetHeading_Start = new JoystickButton(driverController, XboxController.Button.kStart.value);

@@ -6,6 +6,8 @@ package frc.robot.subsystems;
 
 import java.text.DecimalFormat;
 
+import org.littletonrobotics.junction.Logger;
+
 import com.ctre.phoenix6.hardware.Pigeon2;
 import com.pathplanner.lib.auto.AutoBuilder;
 
@@ -94,7 +96,7 @@ public class Drivetrain extends SubsystemBase {
     turnLimiter = new SlewRateLimiter(SwerveConstants.TELE_DRIVE_MAX_ANGULAR_ACCELERATION);
 
     gyro = new Pigeon2(SwerveConstants.PIGEON_ID);
-
+    
     poseEstimator = new SwerveDrivePoseEstimator(
       SwerveConstants.DRIVE_KINEMATICS,
       getHeadingRotation2d(),
@@ -117,6 +119,10 @@ public class Drivetrain extends SubsystemBase {
 
     SmartDashboard.putNumber("Robot Angle", getHeading());
     SmartDashboard.putString("Angular Speed", new DecimalFormat("#.00").format((-gyro.getRate() / 180)) + "pi rad/s");
+
+    SmartDashboard.putNumber("RobotPose_X", getPose().getX());
+    SmartDashboard.putNumber("RobotPose_Y", getPose().getY());
+    Logger.recordOutput("RobotPose", getPose());
   }
 
   public void swerveDrive(double frontSpeed, double sideSpeed, double turnSpeed, 
@@ -168,6 +174,7 @@ public class Drivetrain extends SubsystemBase {
 
   public Pose2d getPose(){
     return poseEstimator.getEstimatedPosition();
+    
   }
 
   public void resetPose(Pose2d pose) {
