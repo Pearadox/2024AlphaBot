@@ -4,13 +4,22 @@
 
 package frc.robot;
 
+import org.ejml.dense.row.mult.VectorVectorMult_CDRM;
+
 import com.pathplanner.lib.util.HolonomicPathFollowerConfig;
 import com.pathplanner.lib.util.PIDConstants;
 import com.pathplanner.lib.util.ReplanningConfig;
 
+import edu.wpi.first.math.VecBuilder;
+import edu.wpi.first.math.Vector;
+import edu.wpi.first.math.geometry.Rotation3d;
+import edu.wpi.first.math.geometry.Transform3d;
 import edu.wpi.first.math.geometry.Translation2d;
+import edu.wpi.first.math.geometry.Translation3d;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
+import edu.wpi.first.math.numbers.N3;
 import edu.wpi.first.math.util.Units;
+import frc.lib.vision.PhotonVisionBackend;
 
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
@@ -73,6 +82,8 @@ public final class Constants {
         new Translation2d(WHEEL_BASE / 2, -TRACK_WIDTH / 2),
         new Translation2d(-WHEEL_BASE / 2, TRACK_WIDTH / 2),
         new Translation2d(-WHEEL_BASE / 2, -TRACK_WIDTH / 2)
+
+        
     );
 
     //Teleop constraints
@@ -96,5 +107,49 @@ public final class Constants {
     public static final double AUTO_DRIVE_MAX_ANGULAR_SPEED = DRIVETRAIN_MAX_ANGULAR_SPEED / 2.0;
     public static final double AUTO_DRIVE_MAX_ACCELERATION = 3;
     public static final double AUTO_DRIVE_MAX_ANGULAR_ACCELERATION = Math.PI;
+
+    /**
+   * Standard deviations of model states. Increase these numbers to trust your model's state estimates less. This
+   * matrix is in the form [x, y, theta]ᵀ, with units in meters and radians, then meters.
+   */
+    public static final Vector<N3> ODOMETRY_STD_DEV = VecBuilder.fill(0,0,0);
+    //https://docs.wpilib.org/en/stable/docs/software/advanced-controls/state-space/state-space-pose-estimators.html
+  }
+
+  public static final class FieldConstants{
+    public static final double FIELD_LENGTH = 16.54175;
+    public static final double FIELD_WIDTH = 8.21055;
+
+  }
+
+
+  public static final class VisionConstants{
+    public static final String SHOOTER_LL_NAME = "limelight-shooter";
+    public static final String ARM_LL_NAME = "limelight-arm";
+
+    public static final Transform3d ROBOT_TO_SHOOTER_LL = new Transform3d(
+      new Translation3d( 
+        -Units.inchesToMeters(0.2732),
+        Units.inchesToMeters(5.8752),
+        Units.inchesToMeters(26.4144)
+      ), 
+      new Rotation3d());
+
+      public static final PhotonVisionBackend.StandardDeviation PHOTON_VISION_STD_DEV =
+      (distance, count) -> {
+          double distanceMultiplier = Math.pow(distance - ((count - 1) * 2), 2);
+          double translationalStdDev = (0.05 / (count)) * distanceMultiplier + 0.05;
+          double rotationalStdDev = 0.2 * distanceMultiplier + 0.1;
+          return VecBuilder.fill(
+                  translationalStdDev,
+                  translationalStdDev,
+                  rotationalStdDev
+          );
+      };
+
+      public static final Vector<N3> LIMELIGHT_STD_DEV = VecBuilder.fill(0.9, 0.9, 0.9);
+      
+      public static final double AMBIGUITY_FILTER = 0.3;
+      public static final double DISTANCE_FILTER = FieldConstants.FIELD_LENGTH / 2;
   }
 }
