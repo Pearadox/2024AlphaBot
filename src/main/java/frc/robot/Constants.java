@@ -120,6 +120,13 @@ public final class Constants {
 
   }
 
+  public static final class ShootConstants{
+    public static final int SHOOT_MOTOR_ID = 0;
+    public static final double SHOOTING_SPEED = 123213;
+    public static final int SHOOT_YAW_MOTOR_ID = 0;
+    public static final int SHOOT_PITCH_MOTOR_ID = 0;
+    
+  }
 
   public static final class VisionConstants{
     public static final String SHOOTER_LL_NAME = "limelight-shooter";
