@@ -67,14 +67,9 @@ public class SwerveModule extends SubsystemBase {
   }
 
   public void setBrake(boolean brake){
-    if(brake){
-      driveMotor.setIdleMode(IdleMode.kBrake);
-      turnMotor.setIdleMode(IdleMode.kCoast);
-    }
-    else{
-      driveMotor.setIdleMode(IdleMode.kCoast);
-      turnMotor.setIdleMode(IdleMode.kCoast);
-    }
+    IdleMode idleMode = brake ? IdleMode.kBrake : IdleMode.kCoast;
+    driveMotor.setIdleMode(idleMode);
+    turnMotor.setIdleMode(idleMode);
   }
   
   public double getDriveMotorPosition(){
