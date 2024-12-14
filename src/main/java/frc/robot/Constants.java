@@ -35,28 +35,28 @@ public final class Constants {
 
   public static final class SwerveConstants{
     //Drivetrain motor/encoder IDs
-    public static final int LEFT_FRONT_DRIVE_ID = 1;
-    public static final int RIGHT_FRONT_DRIVE_ID = 2;
-    public static final int LEFT_BACK_DRIVE_ID = 3;
-    public static final int RIGHT_BACK_DRIVE_ID = 4;
+    public static final int LEFT_FRONT_DRIVE_ID = 1; //1
+    public static final int RIGHT_FRONT_DRIVE_ID = 3; //2
+    public static final int LEFT_BACK_DRIVE_ID = 2; //3
+    public static final int RIGHT_BACK_DRIVE_ID = 4; //4
     
-    public static final int LEFT_FRONT_TURN_ID = 5;
-    public static final int RIGHT_FRONT_TURN_ID = 6;
-    public static final int LEFT_BACK_TURN_ID = 7;
-    public static final int RIGHT_BACK_TURN_ID = 8;
+    public static final int LEFT_FRONT_TURN_ID = 5; //5
+    public static final int RIGHT_FRONT_TURN_ID = 7; //6
+    public static final int LEFT_BACK_TURN_ID = 6; //7
+    public static final int RIGHT_BACK_TURN_ID = 8; //8
     
-    public static final int LEFT_FRONT_CANCODER_ID = 11;
-    public static final int RIGHT_FRONT_CANCODER_ID = 12;
-    public static final int LEFT_BACK_CANCODER_ID = 13;
-    public static final int RIGHT_BACK_CANCODER_ID = 14;
+    public static final int LEFT_FRONT_CANCODER_ID = 14; //11
+    public static final int RIGHT_FRONT_CANCODER_ID = 13; //12
+    public static final int LEFT_BACK_CANCODER_ID = 12; //13
+    public static final int RIGHT_BACK_CANCODER_ID = 11; //14
 
     public static final int PIGEON_ID = 15;
 
     //Drivetrain characteristics
-    public static final double LEFT_FRONT_OFFSET = -0.415; //change
-    public static final double RIGHT_FRONT_OFFSET = -0.317; //change
-    public static final double LEFT_BACK_OFFSET = -0.389; //change
-    public static final double RIGHT_BACK_OFFSET = 0.235; //change
+    public static final double LEFT_FRONT_OFFSET = 0.4725; // 0.464; //change (0.235) -> (0.464) or (0.958)
+    public static final double RIGHT_FRONT_OFFSET = 0.698; //-0.298 + 0.5; //change (-0.389)
+    public static final double LEFT_BACK_OFFSET = 0.384; // -0.122 + 0.5; //change (-0.317)
+    public static final double RIGHT_BACK_OFFSET = 0.268; //change (-0.415) -> (0.276) or (0.781)
 
     public static final double WHEEL_DIAMETER = Units.inchesToMeters(4);
     public static final double DRIVE_MOTOR_GEAR_RATIO = 6.75;
@@ -91,6 +91,7 @@ public final class Constants {
     public static final double TELE_DRIVE_MAX_ANGULAR_ACCELERATION = 3;
 
     //Auton constraints
+    
     public static final double AUTO_kP_TRANSLATION = 4;
     public static final double AUTO_kP_ROTATION = 1.5;
 
@@ -105,7 +106,7 @@ public final class Constants {
     public static final double AUTO_DRIVE_MAX_ANGULAR_SPEED = DRIVETRAIN_MAX_ANGULAR_SPEED / 2.0;
     public static final double AUTO_DRIVE_MAX_ACCELERATION = 3;
     public static final double AUTO_DRIVE_MAX_ANGULAR_ACCELERATION = Math.PI;
-
+    
     /**
    * Standard deviations of model states. Increase these numbers to trust your model's state estimates less. This
    * matrix is in the form [x, y, theta]ᵀ, with units in meters and radians, then meters.
