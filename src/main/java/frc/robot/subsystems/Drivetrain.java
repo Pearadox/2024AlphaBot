@@ -23,6 +23,7 @@ import edu.wpi.first.math.kinematics.SwerveModuleState;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.lib.drivers.util.QuestNav;
 import frc.robot.Constants.SwerveConstants;
 
 public class Drivetrain extends SubsystemBase {
@@ -117,6 +118,8 @@ public class Drivetrain extends SubsystemBase {
   public void periodic() {
     poseEstimator.update(getHeadingRotation2d(), getModulePositions());
 
+    QuestNav.periodic();
+
     SmartDashboard.putNumber("Robot Angle", getHeading());
     SmartDashboard.putString("Angular Speed", new DecimalFormat("#.00").format((-gyro.getRate() / 180)) + "pi rad/s");
 
@@ -179,6 +182,7 @@ public class Drivetrain extends SubsystemBase {
 
   public void resetPose(Pose2d pose) {
     poseEstimator.resetPosition(getHeadingRotation2d(), getModulePositions(), pose);
+    QuestNav.resetQuestPose(pose);
   }
 
   public ChassisSpeeds getRobotRelativeSpeeds(){
@@ -192,10 +196,12 @@ public class Drivetrain extends SubsystemBase {
 
   public void zeroHeading(){
     gyro.setYaw(0);
+    QuestNav.resetHeading(0);
   }
 
   public void setHeading(double heading){
     gyro.setYaw(heading);
+    QuestNav.resetHeading(heading);
   }
 
   public double getHeading(){
